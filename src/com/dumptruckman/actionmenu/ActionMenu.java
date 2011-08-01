@@ -106,6 +106,16 @@ public abstract class ActionMenu {
     }
 
     /**
+     * Removes the menu item at the specified position in this menu. Shifts any subsequent menu items to the left (subtracts one from their indices). Returns the menu item that was removed from the menu.
+     * @param index Index of menu item to remove
+     * @return Menu item removed.
+     * @throws IndexOutOfBoundsException
+     */
+    public ActionMenuItem removeMenuItem(int index) throws IndexOutOfBoundsException {
+        return contents.remove(index);
+    }
+
+    /**
      * Get the index of the current menu selection.
      *
      * @return The selected menu item's index.
