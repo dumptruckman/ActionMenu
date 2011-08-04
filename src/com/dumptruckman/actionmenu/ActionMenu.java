@@ -188,6 +188,21 @@ public abstract class ActionMenu {
         }
         triggerAllOnCycleEvent(sender);
         contents.get(selectedIndex).onSelect(sender);
+        onCycle();
+    }
+
+    /**
+     * Empty method.  Called when menu is cycled.
+     */
+    protected void onCycle() {
+
+    }
+
+    /**
+     * Empty method.  Called when a menu item is selected directly.
+     */
+    protected void onSelect() {
+
     }
 
     /**
@@ -219,6 +234,7 @@ public abstract class ActionMenu {
     final public void setMenuIndex(CommandSender sender, int index) {
         selectedIndex = index;
         contents.get(selectedIndex).onSelect(sender);
+        onSelect();
     }
 
     /**

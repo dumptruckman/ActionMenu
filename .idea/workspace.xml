@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fb04386-6d33-4b17-a121-b03d6ce4771d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE.txt" />
-      <change type="MOVED" beforePath="C:\Projects\ActionMenu\src\com\dumptruckman\actionmenu\ActionMenuPlugin.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java" />
-      <change type="MOVED" beforePath="C:\Projects\ActionMenu\src\com\dumptruckman\actionmenu\SignActionMenu.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/sign/SignActionMenu.java" />
-      <change type="MOVED" beforePath="C:\Projects\ActionMenu\src\com\dumptruckman\actionmenu\SignActionMenuItem.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/sign/SignActionMenuItem.java" />
-      <change type="MOVED" beforePath="C:\Projects\ActionMenu\src\com\dumptruckman\actionmenu\SpoutActionMenu.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/spout/SpoutActionMenu.java" />
-      <change type="MOVED" beforePath="C:\Projects\ActionMenu\src\com\dumptruckman\actionmenu\test\ActionMenuPlayerListener.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlayerListener.java" />
-      <change type="MOVED" beforePath="C:\Projects\ActionMenu\src\com\dumptruckman\actionmenu\test\ActionMenuServerListener.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuServerListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuRenderer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/plugin.yml" afterPath="$PROJECT_DIR$/src/plugin.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/maps.xml" afterPath="$PROJECT_DIR$/.idea/libraries/maps.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenu.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenuItem.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenuItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/DefaultActionMenu.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/DefaultActionMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/PlayerActionMenuItem.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/PlayerActionMenuItem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenu.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuItem.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java" />
     </list>
     <ignored path="ActionMenu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,26 +70,57 @@
       <file leaf-file-name="ActionMenuPlugin.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="59" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0">
+            <state line="47" column="13" selection-start="2022" selection-end="2022" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActionMenuPlayerListener.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ActionMenuPlayerListener.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlayerListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="62" selection-start="2084" selection-end="2084" vertical-scroll-proportion="0.0">
+            <state line="23" column="61" selection-start="696" selection-end="696" vertical-scroll-proportion="0.13598901">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapActionMenuItem.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MapActionMenu.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="54" selection-start="923" selection-end="923" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActionMenu.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="201" column="67" selection-start="5828" selection-end="5828" vertical-scroll-proportion="-12.730769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapActionMenuRenderer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="30" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapActionMenuItem.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="56" selection-start="98" selection-end="98" vertical-scroll-proportion="0.045454547">
-              <folding />
+            <state line="46" column="20" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,22 +139,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/SignActionMenuItem.java" />
-        <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/test/ActionMenuPlayerListener.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/SignActionMenu.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/MapActionMenu.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuUtility.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapUtility.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapUtil.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenuPlugin.java" />
-        <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenu.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/sign/SignActionMenu.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenuItem.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/PlayerActionMenuItem.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/sign/SignActionMenuItem.java" />
         <option value="$PROJECT_DIR$/src/LICENSE.txt" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuItem.java" />
+        <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java" />
+        <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuRenderer.java" />
         <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenu.java" />
+        <option value="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenu.java" />
       </list>
     </option>
   </component>
@@ -457,7 +479,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="150" y="30" width="1447" height="935" extended-state="1" />
+    <frame x="150" y="30" width="1447" height="935" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -470,7 +492,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24837075" sideWeight="0.6705277" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24837075" sideWeight="0.6705277" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="270" y="150" width="1247" height="735" />
@@ -561,30 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="59" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="503" selection-end="503" vertical-scroll-proportion="-0.73706293">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="188" column="47" selection-start="5128" selection-end="5128" vertical-scroll-proportion="0.76648355">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlayerListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="62" selection-start="2084" selection-end="2084" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="87" column="4" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.27272728">
@@ -606,9 +604,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="13" selection-start="2022" selection-end="2022" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="56" selection-start="98" selection-end="98" vertical-scroll-proportion="0.045454547">
+        <state line="46" column="20" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="201" column="67" selection-start="5828" selection-end="5828" vertical-scroll-proportion="-12.730769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="30" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="54" selection-start="923" selection-end="923" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlayerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="61" selection-start="696" selection-end="696" vertical-scroll-proportion="0.13598901">
           <folding />
         </state>
       </provider>

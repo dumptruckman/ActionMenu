@@ -21,7 +21,7 @@ public class ActionMenuPlugin extends JavaPlugin {
     private ActionMenuPlayerListener playerListener = new ActionMenuPlayerListener(this);
 
     public void onEnable() {
-
+/*
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Event.Priority.Normal, this);
         pm.registerEvent(Event.Type.PLAYER_ITEM_HELD, playerListener, Event.Priority.Normal, this);
@@ -45,11 +45,11 @@ public class ActionMenuPlugin extends JavaPlugin {
             public void run() {
                 //To change body of implemented methods use File | Settings | File Templates.
             }
-        });
-        log.info(this.getDescription().getName() + " " + getDescription().getVersion() + " enabled.");
+        });*/
+        log.info(this + " enabled.");
     }
 
     public void onDisable() {
-        log.info(this.getDescription().getName() + " " + getDescription().getVersion() + " disabled.");
+        log.info(this + " disabled.");
     }
 }
