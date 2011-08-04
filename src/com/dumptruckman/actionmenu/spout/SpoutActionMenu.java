@@ -1,15 +1,12 @@
-package com.dumptruckman.actionmenu;
+package com.dumptruckman.actionmenu.spout;
 
+import com.dumptruckman.actionmenu.ActionMenu;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+
 //import org.bukkitcontrib.gui.InGameHUD;
 //import org.bukkitcontrib.gui.Widget;
 //import org.bukkitcontrib.player.ContribCraftPlayer;
 //import org.bukkitcontrib.player.ContribPlayer;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author dumptruckman

@@ -1,10 +1,8 @@
-package com.dumptruckman.actionmenu.test;
+package com.dumptruckman.actionmenu.plugin;
 
 import org.bukkit.event.server.MapInitializeEvent;
 import org.bukkit.event.server.ServerListener;
 import org.bukkit.map.MapRenderer;
-
-import java.util.Map;
 
 /**
  * @author dumptruckman

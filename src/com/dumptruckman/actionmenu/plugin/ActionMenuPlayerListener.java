@@ -1,6 +1,5 @@
-package com.dumptruckman.actionmenu.test;
+package com.dumptruckman.actionmenu.plugin;
 
-import com.dumptruckman.actionmenu.ActionMenuPlugin;
 import org.bukkit.Material;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;

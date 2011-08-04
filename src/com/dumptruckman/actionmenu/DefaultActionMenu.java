@@ -2,8 +2,6 @@ package com.dumptruckman.actionmenu;
 
 import org.bukkit.command.CommandSender;
 
-import java.util.List;
-
 /**
  * @author dumptruckman
  */

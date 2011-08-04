@@ -1,5 +1,6 @@
-package com.dumptruckman.actionmenu;
+package com.dumptruckman.actionmenu.sign;
 
+import com.dumptruckman.actionmenu.ActionMenu;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.command.CommandSender;
@@ -66,22 +67,5 @@ public class SignActionMenu extends ActionMenu {
             ((Player) sender).sendBlockChange(sign.getBlock().getLocation(), 0, (byte) 0);
         }
         sign.update(true);
-    }
-
-    /**
-     * Perform menu item for sender at selectedIndex.  The menu item must implement Runnable.
-     *
-     * @param sender whoever is activating the menu item.  MUST be a player!
-     * @param index  selectedIndex of the menu item
-     * @return the item performed
-     */
-    @Override
-    public ActionMenuItem doMenuItem(CommandSender sender, int index) {
-        ActionMenuItem selectedItem = getContents().get(index);
-        if ((selectedItem instanceof SignActionMenuItem) && (sender instanceof Player)) {
-            ((SignActionMenuItem) selectedItem).setInteracting((Player) sender);
-            ((SignActionMenuItem) selectedItem).run();
-        }
-        return selectedItem;
     }
 }

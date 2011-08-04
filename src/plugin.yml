@@ -1,4 +1,4 @@
 name: ActionMenu
-main: com.dumptruckman.actionmenu.ActionMenuPlugin
-version: .8.0-beta
+main: com.dumptruckman.actionmenu.plugin.ActionMenuPlugin
+version: .8.1-beta
 author: dumptruckman

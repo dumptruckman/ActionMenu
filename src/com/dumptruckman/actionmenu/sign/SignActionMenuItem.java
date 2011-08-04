@@ -1,7 +1,6 @@
-package com.dumptruckman.actionmenu;
+package com.dumptruckman.actionmenu.sign;
 
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import com.dumptruckman.actionmenu.PlayerActionMenuItem;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
 package com.dumptruckman.actionmenu;
 
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 /**
  * @author dumptruckman
@@ -27,6 +26,15 @@ public abstract class ActionMenuItem implements Runnable {
     }
 
     /**
+     * Compares this to another object.
+     * @param o Object to compare to.
+     * @return True if o is an instance of ActionMenuItem and their text is the same.
+     */
+    public boolean equals(Object o) {
+        return (o instanceof ActionMenuItem && o.toString().equals(this.toString()));
+    }
+
+    /**
      * Empty method.  Used to update menu items in some way.
      */
     public void update() {
@@ -34,35 +42,35 @@ public abstract class ActionMenuItem implements Runnable {
     }
 
     /**
-     * Empty method.  Called whenever the menu is cycled.
-     * @param sender Whoever caused the cycle event.  Could be null.
-     */
-    //protected void onCycle(CommandSender sender) {
-
-    //}
-
-    /**
-     * Empty method.  Called whenever the menu item becomes selected.
-     * @param sender Whoever caused the selection event.  Could be null.
-     */
-    //protected void onSelect(CommandSender sender) {
-
-    //}
-
-    /**
      * When the sign is cycled it sets the player causing the cycle event as the player interacting with the sign.
      * @param sender Whoever caused the cycle event.  Could be null.
      */
-    protected void onCycle(CommandSender sender) {
+    final protected void onCycle(CommandSender sender) {
         setInteracting(sender);
+        onCycle();
+    }
+
+    /**
+     * Empty method that is called when the menu is cycled.
+     */
+    protected void onCycle() {
+        
     }
 
     /**
      * When the menu item is selected it sets the player causing the cycle event as the player interacting with the sign.
      * @param sender Whoever caused the selection event.  Could be null.
      */
-    protected void onSelect(CommandSender sender) {
+    final protected void onSelect(CommandSender sender) {
         setInteracting(sender);
+        onSelect();
+    }
+
+    /**
+     * Empty method that is called when the menu item is selected.
+     */
+    protected void onSelect() {
+        
     }
 
     /**
@@ -82,6 +90,14 @@ public abstract class ActionMenuItem implements Runnable {
     }
 
     /**
+     * Gets the menu item's text.
+     * @return Text of menu item.
+     */
+    public String toString() {
+        return getText();
+    }
+
+    /**
      * Sets the player for this menu item's interaction.
      * @param sender CommandSender interacting with the menu.
      */
@@ -89,6 +105,10 @@ public abstract class ActionMenuItem implements Runnable {
         this.sender = sender;
     }
 
+    /**
+     * Retrieve the last person to interact with this menu.
+     * @return The last interactor.
+     */
     public CommandSender getSender() {
         return sender;
     }

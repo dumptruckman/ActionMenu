@@ -1,13 +1,10 @@
 package com.dumptruckman.actionmenu.map;
 
 import com.dumptruckman.actionmenu.ActionMenu;
-import com.sun.javaws.jnl.XMLFormat;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.map.*;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.List;
 
 /**
  * @author dumptruckman
@@ -16,15 +13,23 @@ public class MapActionMenu extends ActionMenu {
 
     private MapFont mapFont = MinecraftFont.Font;
 
-    private int x = 2;
-    private int y = 10;
-    private int width = 124;
-    private int height = 116;
-    private int newLineSpace = 1;
-    private int betweenCharSpace = 3;
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+    private int newLineSpace;
+    private int betweenCharSpace;
+    private int scrollPos;
 
     public MapActionMenu(JavaPlugin plugin) {
         super(plugin);
+        x = 2;
+        y = 10;
+        width = 120;
+        height = 116;
+        newLineSpace = 1;
+        betweenCharSpace = 3;
+        scrollPos = 0;
     }
 
     public MapActionMenu setFont(MapFont font) {
@@ -89,48 +94,84 @@ public class MapActionMenu extends ActionMenu {
         return newLineSpace;
     }
 
-    protected int writeLine(MapCanvas canvas, int x, int y, MapFont font, String text) {
+    public int getScrollPos() {
+        return scrollPos;
+    }
+
+    public MapActionMenu setScrollPos(int newPos) {
+        scrollPos = newPos;
+        return this;
+    }
+
+    public void scrollMenu() {
+        scrollMenu(false);
+    }
+
+    public void scrollMenu(boolean reverse) {
+        if (reverse) {
+            scrollPos--;
+        } else {
+            scrollPos++;
+        }
+        int menuSize = getHeader().size() + getContents().size() + getFooter().size();
+        if (scrollPos < 0) {
+            scrollPos = menuSize - 1;
+        }
+        if (scrollPos >= menuSize) {
+            scrollPos = 0;
+        }
+    }
+    
+    protected int writeLines(MapCanvas canvas, int x, int y, MapFont font, String text) {
         int xPos = x;
         int yPos = y;
         int xLimit = getWidth() - x;
         int yLimit = getHeight() - y;
         int spaceWidth = font.getWidth(" ") + betweenCharSpace;
         String[] words = text.split("\\s");
+        String lineBuffer = "";
+        int lineWidth = 0;
         for (int i = 0; i < words.length; i++) {
-            // If our yPos has gone to far, quit writing.
-            if (yPos > yLimit) return yPos;
-            // If a word is too long for one line, write it and wrap the text.
             int wordWidth = font.getWidth(words[i]);
-            if (wordWidth > xLimit) {
-                System.out.println("big word");
+            if (wordWidth <= xLimit) {
+                if (xPos + lineWidth + wordWidth <= xLimit) {
+                    lineBuffer += words[i] + " ";
+                    lineWidth = font.getWidth(lineBuffer);
+                } else {
+                    canvas.drawText(xPos, yPos, font, lineBuffer);
+                    lineBuffer = "";
+                    lineWidth = 0;
+                    yPos += font.getHeight() + getNewLineSpace();
+                    i--;
+                    continue;
+                }
+            } else {
                 char[] chars = words[i].toCharArray();
                 for (int j = 0; j < chars.length; j++) {
-                    // If our yPos has gone to far, quit writing.
-                    if (yPos > yLimit) return yPos;
-                    int charWidth = font.getWidth(Character.toString(chars[i]));
-                    if (charWidth + xPos > xLimit) {
-                        xPos = x;
+                    String sChar = Character.toString(chars[j]);
+                    int charWidth = font.getWidth(sChar);
+                    if (xPos + lineWidth + charWidth < xLimit) {
+                        lineBuffer += sChar;
+                        lineWidth = font.getWidth(lineBuffer);
+                    } else {
+                        canvas.drawText(xPos, yPos, font, lineBuffer);
+                        lineBuffer = "";
+                        lineWidth = 0;
                         yPos += font.getHeight() + getNewLineSpace();
+                        j--;
+                        continue;
                     }
-                    canvas.drawText(xPos, yPos, font, Character.toString(chars[i]));
-                    xPos += charWidth + betweenCharSpace;
                 }
-                canvas.drawText(xPos, yPos, font, " ");
-                xPos += spaceWidth;
-                continue;
+                if (lineWidth != 0) {
+                    lineBuffer += " ";
+                    lineWidth = font.getWidth(lineBuffer);
+                }
             }
-            // If a word will be truncated, start it on a new line
-            if (wordWidth > xLimit - xPos) {
-                System.out.println("line end");
-                yPos += font.getHeight() + getNewLineSpace();
-                xPos = x;
-                if(yPos > yLimit) return yPos;
-            }
-            System.out.println("x:" + xPos + " y:" + yPos + " width:" + wordWidth + " " + words[i]);
-            canvas.drawText(xPos, yPos, font, words[i] + " ");
-            xPos += wordWidth + spaceWidth;
         }
-        yPos += font.getHeight() + getNewLineSpace();
+        if (lineWidth != 0) {
+            canvas.drawText(xPos, yPos, font, lineBuffer);
+            yPos += font.getHeight() + getNewLineSpace();
+        }
         return yPos;
     }
 
@@ -149,10 +190,13 @@ public class MapActionMenu extends ActionMenu {
             @Override
             public void render(MapView mapView, MapCanvas mapCanvas, Player player) {
                 int y = getY();
-                for (String header : getHeader()) {
-                    y = writeLine(mapCanvas, getX(), y, mapFont, header);
+                int scrollPos = getScrollPos();
+                for (int i = scrollPos; i < getHeader().size(); i++) {
+                    y = writeLines(mapCanvas, getX(), y, mapFont, getHeader().get(i));
                 }
-                for (int i = 0; i < getContents().size(); i++) {
+                scrollPos -= getHeader().size();
+                if (scrollPos < 0) scrollPos = 0;
+                for (int i = scrollPos; i < getContents().size(); i++) {
                     if (!(getContents().get(i) instanceof MapActionMenuItem)) continue;
                     MapActionMenuItem item = (MapActionMenuItem)getContents().get(i);
                     String text = "";
@@ -160,12 +204,12 @@ public class MapActionMenu extends ActionMenu {
                         text += "-> ";
                     }
                     text += item.getText();
-                    MapFont font = item.getFont();
-                    if (font == null) font = mapFont;
-                    y = writeLine(mapCanvas, getX(), y, mapFont, text);
+                    y = writeLines(mapCanvas, getX(), y+2, item.getFont(), text);
                 }
-                for (String footer : getFooter()) {
-                    y = writeLine(mapCanvas, getX(), y, mapFont, footer);
+                scrollPos -= getContents().size();
+                if (scrollPos < 0) scrollPos = 0;
+                for (int i = scrollPos; i < getFooter().size(); i++) {
+                    y = writeLines(mapCanvas, getX(), y+2, mapFont, getFooter().get(i));
                 }
             }
         });

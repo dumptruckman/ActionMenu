@@ -1,8 +1,8 @@
-package com.dumptruckman.actionmenu;
+package com.dumptruckman.actionmenu.plugin;
 
+import com.dumptruckman.actionmenu.ActionMenu;
 import com.dumptruckman.actionmenu.map.MapActionMenu;
 import com.dumptruckman.actionmenu.map.MapActionMenuItem;
-import com.dumptruckman.actionmenu.test.ActionMenuPlayerListener;
 import org.bukkit.entity.Fireball;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginManager;
@@ -25,23 +25,22 @@ public class ActionMenuPlugin extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Event.Priority.Normal, this);
         pm.registerEvent(Event.Type.PLAYER_ITEM_HELD, playerListener, Event.Priority.Normal, this);
-        menu = new MapActionMenu(this);
+        menu = new MapActionMenu(this).setWidth(50);
         menu.setHeader("Spells");
         menu.addMenuItem(new MapActionMenuItem("Fireball") {
             @Override
             public void run() {
-                System.out.println(getPlayer());
                 final Vector direction = getPlayer().getEyeLocation().getDirection().multiply(2);
                 getPlayer().getWorld().spawn(getPlayer().getEyeLocation().add(direction.getX(), direction.getY(), direction.getZ()), Fireball.class);
             }
         });
-        menu.addMenuItem(new MapActionMenuItem("This is a test of the emergency broadcast system.") {
+        menu.addMenuItem(new MapActionMenuItem("This is a plugin of the emergency broadcast system.") {
             @Override
             public void run() {
                 //To change body of implemented methods use File | Settings | File Templates.
             }
         });
-        menu.addMenuItem(new MapActionMenuItem("asdfadsfadsfadsfasdfasdfasdfasdfasdfasdfadsfadfsadfsadfsasdf") {
+        menu.addMenuItem(new MapActionMenuItem("12345678901234567890123456789012345678901234567890") {
             @Override
             public void run() {
                 //To change body of implemented methods use File | Settings | File Templates.

@@ -29,7 +29,7 @@ public abstract class ActionMenu {
      * Retrieves the plugin stored in this menu, if any.
      * @return The plugin running the menu or null.
      */
-    public JavaPlugin getPlugin() {
+    final public JavaPlugin getPlugin() {
         return plugin;
     }
 
@@ -39,7 +39,7 @@ public abstract class ActionMenu {
      * @param firstLine       First line of header.
      * @param additionalLines Optional additional lines of header.
      */
-    public void setHeader(String firstLine, String... additionalLines) {
+    final public void setHeader(String firstLine, String... additionalLines) {
         header.clear();
         header.add(firstLine);
 
@@ -55,7 +55,7 @@ public abstract class ActionMenu {
      *
      * @return List of header lines.
      */
-    public List<String> getHeader() {
+    final public List<String> getHeader() {
         return header;
     }
 
@@ -65,7 +65,7 @@ public abstract class ActionMenu {
      * @param firstLine       First line of footer.
      * @param additionalLines Optional additional lines of footer.
      */
-    public void setFooter(String firstLine, String... additionalLines) {
+    final public void setFooter(String firstLine, String... additionalLines) {
         footer.clear();
         footer.add(firstLine);
 
@@ -81,7 +81,7 @@ public abstract class ActionMenu {
      *
      * @return List of footer lines.
      */
-    public List<String> getFooter() {
+    final public List<String> getFooter() {
         return footer;
     }
 
@@ -90,7 +90,7 @@ public abstract class ActionMenu {
      *
      * @param contents List of menu items to set for this menu.
      */
-    protected void setContents(List<ActionMenuItem> contents) {
+    final public void setContents(List<ActionMenuItem> contents) {
         this.contents = contents;
     }
 
@@ -99,7 +99,7 @@ public abstract class ActionMenu {
      *
      * @return Menu item list.
      */
-    public List<ActionMenuItem> getContents() {
+    final public List<ActionMenuItem> getContents() {
         return contents;
     }
 
@@ -108,7 +108,7 @@ public abstract class ActionMenu {
      *
      * @return Selected menu item.
      */
-    public ActionMenuItem getSelectedMenuItem() {
+    final public ActionMenuItem getSelectedMenuItem() {
         return contents.get(selectedIndex);
     }
 
@@ -134,18 +134,28 @@ public abstract class ActionMenu {
     }
 
     /**
+     * Removes the first occurrence of the specified element from this list, if it is present (optional operation). If this list does not contain the element, it is unchanged. More formally, removes the element with the lowest index i such that (o==null ? get(i)==null : o.equals(get(i))) (if such an element exists). Returns true if this list contained the specified element (or equivalently, if this list changed as a result of the call).
+     *
+     * @param item element to be removed from this list, if present
+     * @return true if this list contained the specified element
+     */
+    public boolean removeMenuItem(ActionMenuItem item) {
+        return contents.remove(item);
+    }
+
+    /**
      * Get the index of the current menu selection.
      *
      * @return The selected menu item's index.
      */
-    public Integer getMenuIndex() {
+    final public Integer getMenuIndex() {
         return selectedIndex;
     }
 
     /**
      * Cycles the selection through the menu options.
      */
-    public void cycleMenu() {
+    final public void cycleMenu() {
         cycleMenu(null, false);
     }
 
@@ -154,7 +164,7 @@ public abstract class ActionMenu {
      *
      * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for the task.
      */
-    public void cycleMenu(CommandSender sender) {
+    final public void cycleMenu(CommandSender sender) {
         cycleMenu(sender, false);
     }
 
@@ -164,7 +174,7 @@ public abstract class ActionMenu {
      * @param sender  Person who activates the menu cycle.  This could be null if the sender is not important for the task.
      * @param reverse If set to true, cycles backwards.
      */
-    public void cycleMenu(CommandSender sender, boolean reverse) {
+    final public void cycleMenu(CommandSender sender, boolean reverse) {
         if (reverse) {
             selectedIndex--;
         } else {
@@ -185,7 +195,7 @@ public abstract class ActionMenu {
      *
      * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for the task.
      */
-    protected void triggerAllOnCycleEvent(CommandSender sender) {
+    final protected void triggerAllOnCycleEvent(CommandSender sender) {
         for (ActionMenuItem item : contents) {
             item.onCycle(sender);
         }
@@ -196,7 +206,7 @@ public abstract class ActionMenu {
      *
      * @param index Sets the selection index to this.
      */
-    public void setMenuIndex(int index) {
+    final public void setMenuIndex(int index) {
         selectedIndex = index;
     }
 
@@ -206,7 +216,7 @@ public abstract class ActionMenu {
      * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for the task.
      * @param index  Sets the selection index to this.
      */
-    public void setMenuIndex(CommandSender sender, int index) {
+    final public void setMenuIndex(CommandSender sender, int index) {
         selectedIndex = index;
         contents.get(selectedIndex).onSelect(sender);
     }
@@ -218,7 +228,7 @@ public abstract class ActionMenu {
      * @param index  Index of the menu item to perform.
      * @return The item performed.
      */
-    public ActionMenuItem doMenuItem(CommandSender sender, int index) {
+    final public ActionMenuItem doMenuItem(CommandSender sender, int index) {
         ActionMenuItem selectedItem = contents.get(index);
         selectedItem.setInteracting(sender);
         selectedItem.run();
@@ -231,14 +241,14 @@ public abstract class ActionMenu {
      * @param sender Whoever is activating the menu item. This could be null if the sender is not important for the task.
      * @return the item performed
      */
-    public ActionMenuItem doSelectedMenuItem(CommandSender sender) {
+    final public ActionMenuItem doSelectedMenuItem(CommandSender sender) {
         return doMenuItem(sender, selectedIndex);
     }
 
     /**
      * Runs the update method on all menu items.
      */
-    public void updateMenuItems() {
+    final public void updateMenuItems() {
         for (ActionMenuItem item : contents) {
             item.update();
         }
