@@ -77,9 +77,9 @@ public class SignActionMenu extends ActionMenu {
      */
     @Override
     public ActionMenuItem doMenuItem(CommandSender sender, int index) {
-        ActionMenuItem selectedItem = contents.get(index);
+        ActionMenuItem selectedItem = getContents().get(index);
         if ((selectedItem instanceof SignActionMenuItem) && (sender instanceof Player)) {
-            ((SignActionMenuItem) selectedItem).setInteractingPlayer((Player) sender);
+            ((SignActionMenuItem) selectedItem).setInteracting((Player) sender);
             ((SignActionMenuItem) selectedItem).run();
         }
         return selectedItem;

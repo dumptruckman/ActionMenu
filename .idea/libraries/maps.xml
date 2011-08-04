@@ -1,12 +1,9 @@
 <component name="libraryTable">
   <library name="maps">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../lib/bukkit-maps.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../lib/MapCraftBukkit/Map-CraftBukkit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/CraftBukkit/Map-CraftBukkit.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../lib/MapCraftBukkit/SpaceManiac-Bukkit-0.0.0-669-g317c17f.zip!/SpaceManiac-Bukkit-317c17f/src/main/java" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="Spout">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../lib/BukkitContrib/bukkitcontrib-dev-SNAPSHOT.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>

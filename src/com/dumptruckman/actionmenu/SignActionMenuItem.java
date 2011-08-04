@@ -8,10 +8,9 @@ import java.util.List;
 /**
  * @author dumptruckman
  */
-public abstract class SignActionMenuItem extends ActionMenuItem {
+public abstract class SignActionMenuItem extends PlayerActionMenuItem {
 
     protected List<String> lines;
-    protected Player player;
 
     /**
      * ActionMenuItem designed specifically for the SignActionMenu.  It contains 4 lines of text.
@@ -23,37 +22,11 @@ public abstract class SignActionMenuItem extends ActionMenuItem {
     }
 
     /**
-     * Sets the player for this sign's menu interaction.
-     * @param player Player interacting with the sign menu.
-     */
-    protected void setInteractingPlayer(Player player) {
-        this.player = player;
-    }
-
-    /**
      * Get the lines of text on this sign.
      * @return Lines of text on the sign.
      */
     public List<String> getLines() {
         return lines;
-    }
-
-    /**
-     * When the sign is cycled it sets the player causing the cycle event as the player interacting with the sign.
-     * @param sender Whoever caused the cycle event.  Could be null.
-     */
-    @Override
-    protected void onCycle(CommandSender sender) {
-        setInteractingPlayer((sender instanceof Player ? (Player) sender : null));
-    }
-
-    /**
-     * When the menu item is selected it sets the player causing the cycle event as the player interacting with the sign.
-     * @param sender Whoever caused the selection event.  Could be null.
-     */
-    @Override
-    protected void onSelect(CommandSender sender) {
-        setInteractingPlayer((sender instanceof Player ? (Player) sender : null));
     }
 
     /**

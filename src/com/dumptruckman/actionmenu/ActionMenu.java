@@ -1,6 +1,7 @@
 package com.dumptruckman.actionmenu;
 
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +11,27 @@ import java.util.List;
  */
 public abstract class ActionMenu {
 
-    protected List<ActionMenuItem> contents = new ArrayList<ActionMenuItem>();
-    protected int selectedIndex = 0;
-    protected List<String> header = new ArrayList<String>();
-    protected List<String> footer = new ArrayList<String>();
+    private List<ActionMenuItem> contents = new ArrayList<ActionMenuItem>();
+    private int selectedIndex = 0;
+    private List<String> header = new ArrayList<String>();
+    private List<String> footer = new ArrayList<String>();
+    private JavaPlugin plugin;
+
+    public ActionMenu(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+    public ActionMenu() {
+        this(null);
+    }
+
+    /**
+     * Retrieves the plugin stored in this menu, if any.
+     * @return The plugin running the menu or null.
+     */
+    public JavaPlugin getPlugin() {
+        return plugin;
+    }
 
     /**
      * Set's the text to go before the menu options.
@@ -202,6 +220,7 @@ public abstract class ActionMenu {
      */
     public ActionMenuItem doMenuItem(CommandSender sender, int index) {
         ActionMenuItem selectedItem = contents.get(index);
+        selectedItem.setInteracting(sender);
         selectedItem.run();
         return selectedItem;
     }

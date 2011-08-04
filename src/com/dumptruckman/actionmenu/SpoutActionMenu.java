@@ -2,10 +2,10 @@ package com.dumptruckman.actionmenu;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkitcontrib.gui.InGameHUD;
-import org.bukkitcontrib.gui.Widget;
-import org.bukkitcontrib.player.ContribCraftPlayer;
-import org.bukkitcontrib.player.ContribPlayer;
+//import org.bukkitcontrib.gui.InGameHUD;
+//import org.bukkitcontrib.gui.Widget;
+//import org.bukkitcontrib.player.ContribCraftPlayer;
+//import org.bukkitcontrib.player.ContribPlayer;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class SpoutActionMenu extends ActionMenu {
 
-    private Map<ActionMenuItem, Widget> widgetMap = new HashMap<ActionMenuItem, Widget>();
+    /*private Map<ActionMenuItem, Widget> widgetMap = new HashMap<ActionMenuItem, Widget>();
 
     public void showMenu(CommandSender sender) {
         if (!(sender instanceof Player)) return;
@@ -33,5 +33,8 @@ public class SpoutActionMenu extends ActionMenu {
 
     public Integer addMenuItem(ActionMenuItem item) {
 
+    }*/
+    public void showMenu(CommandSender sender) {
+        
     }
 }

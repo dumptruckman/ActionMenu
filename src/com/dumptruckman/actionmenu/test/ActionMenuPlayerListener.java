@@ -2,20 +2,13 @@ package com.dumptruckman.actionmenu.test;
 
 import com.dumptruckman.actionmenu.ActionMenuPlugin;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerListener;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.map.MapCanvas;
-import org.bukkit.map.MapRenderer;
-import org.bukkit.map.MapView;
-import org.bukkitcontrib.gui.*;
-import org.bukkitcontrib.player.ContribPlayer;
+//import org.bukkitcontrib.gui.*;
+//import org.bukkitcontrib.player.ContribPlayer;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * @author dumptruckman
@@ -40,14 +33,23 @@ public class ActionMenuPlayerListener extends PlayerListener {
                 mapCanvas.
             }
         });*/
+        if (event.getPlayer().getItemInHand().getType() != Material.MAP) return;
+        plugin.menu.showMenu(event.getPlayer());
     }
 
     public void onPlayerInteract(PlayerInteractEvent event) {
-        Widget texture = new GenericTexture(
-                "http://www.webtextures.net/textures/simple_gray_patchwork_texture/simple_gray_patchwork_texture.jpg")
-                .setX(0).setY(0).setWidth(50).setHeight(50).setPriority(RenderPriority.Lowest);
-
+        //Widget texture = new GenericTexture(
+        //        "http://www.webtextures.net/textures/simple_gray_patchwork_texture/simple_gray_patchwork_texture.jpg")
+        //        .setX(0).setY(0).setWidth(50).setHeight(50).setPriority(RenderPriority.Lowest)
         
-        ((ContribPlayer) event.getPlayer()).getMainScreen().attachWidget(texture);
+        //((ContribPlayer) event.getPlayer()).getMainScreen().attachWidget(texture);
+
+        if (event.getPlayer().getItemInHand().getType() != Material.MAP) return;
+        if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+            plugin.menu.cycleMenu();
+            plugin.menu.showMenu(event.getPlayer());
+        } else if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
+            plugin.menu.doSelectedMenuItem(event.getPlayer());
+        }
     }
 }

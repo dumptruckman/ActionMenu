@@ -25,11 +25,11 @@ public class DefaultActionMenu extends ActionMenu {
         for (String header : getHeader()) {
             sender.sendMessage(header);
         }
-        for (int i = 0; i < contents.size(); i++) {
-            if (i == selectedIndex) {
-                sender.sendMessage(" * " + contents.get(i).toString());
+        for (int i = 0; i < getContents().size(); i++) {
+            if (i == getMenuIndex()) {
+                sender.sendMessage(" * " + getContents().get(i).toString());
             } else {
-                sender.sendMessage(contents.get(i).toString());
+                sender.sendMessage(getContents().get(i).toString());
             }
         }
         for (String footer : getFooter()) {
