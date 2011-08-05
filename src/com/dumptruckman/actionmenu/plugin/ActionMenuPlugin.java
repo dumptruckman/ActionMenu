@@ -22,9 +22,9 @@ public class ActionMenuPlugin extends JavaPlugin {
     private ActionMenuPlayerListener playerListener = new ActionMenuPlayerListener(this);
 
     public void onEnable() {
-        /*PluginManager pm = getServer().getPluginManager();
+        PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Event.Priority.Normal, this);
-        pm.registerEvent(Event.Type.PLAYER_ITEM_HELD, playerListener, Event.Priority.Normal, this);
+        //pm.registerEvent(Event.Type.PLAYER_ITEM_HELD, playerListener, Event.Priority.Normal, this);
         menu = new MapActionMenu(this);
         menu.setHeader("Spells");
         menu.add(new MapActionMenuItem("Fireball") {
@@ -37,15 +37,13 @@ public class ActionMenuPlugin extends JavaPlugin {
         menu.add(new MapActionMenuItem("This is a plugin of the emergency broadcast system.") {
             @Override
             public void run() {
-                //To change body of implemented methods use File | Settings | File Templates.
             }
         });
         menu.add(new MapActionMenuItem("12345678901234567890123456789012345678901234567890") {
             @Override
             public void run() {
-                //To change body of implemented methods use File | Settings | File Templates.
             }
-        });*/
+        });
         log.info(this + " enabled.");
     }
 
