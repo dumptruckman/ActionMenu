@@ -8,6 +8,7 @@ import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
+import org.bukkit.util.config.Configuration;
 
 import java.util.logging.Logger;
 
@@ -21,26 +22,25 @@ public class ActionMenuPlugin extends JavaPlugin {
     private ActionMenuPlayerListener playerListener = new ActionMenuPlayerListener(this);
 
     public void onEnable() {
-/*
-        PluginManager pm = getServer().getPluginManager();
+        /*PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Event.Priority.Normal, this);
         pm.registerEvent(Event.Type.PLAYER_ITEM_HELD, playerListener, Event.Priority.Normal, this);
-        menu = new MapActionMenu(this).setWidth(50);
+        menu = new MapActionMenu(this);
         menu.setHeader("Spells");
-        menu.addMenuItem(new MapActionMenuItem("Fireball") {
+        menu.add(new MapActionMenuItem("Fireball") {
             @Override
             public void run() {
                 final Vector direction = getPlayer().getEyeLocation().getDirection().multiply(2);
                 getPlayer().getWorld().spawn(getPlayer().getEyeLocation().add(direction.getX(), direction.getY(), direction.getZ()), Fireball.class);
             }
         });
-        menu.addMenuItem(new MapActionMenuItem("This is a plugin of the emergency broadcast system.") {
+        menu.add(new MapActionMenuItem("This is a plugin of the emergency broadcast system.") {
             @Override
             public void run() {
                 //To change body of implemented methods use File | Settings | File Templates.
             }
         });
-        menu.addMenuItem(new MapActionMenuItem("12345678901234567890123456789012345678901234567890") {
+        menu.add(new MapActionMenuItem("12345678901234567890123456789012345678901234567890") {
             @Override
             public void run() {
                 //To change body of implemented methods use File | Settings | File Templates.

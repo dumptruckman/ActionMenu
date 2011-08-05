@@ -61,7 +61,7 @@ public class SignActionMenu extends ActionMenu {
             return;
         }
         for (int i = 0; i < 4; i++) {
-            sign.setLine(i, ((SignActionMenuItem) this.getSelectedMenuItem()).getLine(i));
+            sign.setLine(i, ((SignActionMenuItem) this.getSelectedItem()).getLine(i));
         }
         if (sender instanceof Player && sender != null) {
             ((Player) sender).sendBlockChange(sign.getBlock().getLocation(), 0, (byte) 0);

@@ -3,13 +3,12 @@ package com.dumptruckman.actionmenu;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author dumptruckman
  */
-public abstract class ActionMenu {
+public abstract class ActionMenu implements Iterable, Observer {
 
     private List<ActionMenuItem> contents = new ArrayList<ActionMenuItem>();
     private int selectedIndex = 0;
@@ -34,6 +33,164 @@ public abstract class ActionMenu {
     }
 
     /**
+     * Adds a menu item to the end of the menu.
+     *
+     * @param item Menu item to add to the menu.
+     * @return Index of the new menu item.
+     */
+    public Integer add(ActionMenuItem item) {
+        contents.add(item);
+        item.addObserver(this);
+        onChange();
+        return contents.size() - 1;
+    }
+
+    /**
+     * Removes all of the items from this menu. The menu will be empty after this call returns.
+     */
+    public void clear() {
+        contents.clear();
+        onChange();
+    }
+
+    /**
+     * Returns true if this menu contains the specified item. More formally, returns true if and only if this menu contains at least one item i such that (item==null ? i==null : item.equals(i)).
+     * @param item Item whose presence in this menu is to be tested.
+     * @return true If this menu contains the specified item.
+     */
+    public boolean contains(ActionMenuItem item) {
+        return contents.contains(item);
+    }
+
+    /**
+     * Returns the item at the specified position in this menu.
+     * @param index Index of the item to return.
+     * @return The item at the specified index of this menu.
+     * @throws IndexOutOfBoundsException
+     */
+    public ActionMenuItem get(int index) throws IndexOutOfBoundsException {
+        return contents.get(index);
+    }
+
+    /**
+     * Returns true if this menu contains no items.
+     * @return true if this menu contains no items.
+     */
+    public boolean isEmpty() {
+        return contents.isEmpty();
+    }
+
+    /**
+     * Returns an iterator over the items in this menu in proper sequence.
+     * @return an iterator over the items in this menu in proper sequence.
+     */
+    public Iterator<ActionMenuItem> iterator() {
+        return contents.iterator();
+    }
+
+    /**
+     * Returns the index of the first occurrence of the specified itme in this menu, or -1 if this menu does not contain the item. More formally, returns the lowest index i such that (item==null ? get(i)==null : item.equals(get(i))), or -1 if there is no such index.
+     * @param item Item to search for.
+     * @return The index of the first occurrence of the specified item in this menu, or -1 if this menu does not contain the item.
+     */
+    public Integer indexOf(ActionMenuItem item) {
+        return contents.indexOf(item);
+    }
+
+    /**
+     * Returns the index of the last occurrence of the specified item in this menu, or -1 if this menu does not contain the item. More formally, returns the highest index i such that (item==null ? get(i)==null : item.equals(get(i))), or -1 if there is no such index.
+     * @param item Item to search for.
+     * @return The index of the last occurrence of the specified item in this menu, or -1 if this menu does not contain the item.
+     */
+    public Integer lastIndexOf(ActionMenuItem item) {
+        return contents.lastIndexOf(item);
+    }
+
+    /**
+     * Removes the menu item at the specified position in this menu. Shifts any subsequent menu items to the left (subtracts one from their indices). Returns the menu item that was removed from the menu.
+     * @param index Index of menu item to remove
+     * @return Menu item removed.
+     * @throws IndexOutOfBoundsException
+     */
+    public ActionMenuItem remove(int index) throws IndexOutOfBoundsException {
+        ActionMenuItem item = contents.remove(index);
+        onChange();
+        return item;
+    }
+
+    /**
+     * Removes the first occurrence of the specified item from this menu, if it is present. If this menu does not contain the item, it is unchanged. More formally, removes the item with the lowest index i such that (item==null ? get(i)==null : item.equals(get(i))) (if such an item exists). Returns true if this menu contained the specified item (or equivalently, if this menu changed as a result of the call).
+     *
+     * @param item element to be removed from this list, if present
+     * @return true if this list contained the specified element
+     */
+    public boolean remove(ActionMenuItem item) {
+        boolean result = contents.remove(item);
+        onChange();
+        return result;
+    }
+
+    /**
+     * Replaces the item at the specified position in this menu with the specified item.
+     * @param index Index of the item to replace.
+     * @param item Item to be stored at the specified position.
+     * @return The item previously at the specified position
+     */
+    public ActionMenuItem set(int index, ActionMenuItem item) {
+        ActionMenuItem result = contents.set(index, item);
+        onChange();
+        return result;
+    }
+
+    /**
+     * Returns the number of items in this menu. If this menu contains more than Integer.MAX_VALUE items, returns Integer.MAX_VALUE.
+     * @return
+     */
+    public Integer size() {
+        return contents.size();
+    }
+
+    /**
+     * Returns the menu item that is selected.
+     *
+     * @return Selected menu item.
+     */
+    final public ActionMenuItem getSelectedItem() {
+        return contents.get(selectedIndex);
+    }
+
+    /**
+     * Get the index of the current menu selection.
+     *
+     * @return The selected menu item's index.
+     */
+    final public Integer getIndex() {
+        return selectedIndex;
+    }
+
+    /**
+     * Sets the current menu selection to specified index.  This will specify null for the interacting sender.
+     *
+     * @param index Sets the selection index to this.
+     */
+    final public void setIndex(int index) {
+        setIndex(null, index);
+    }
+
+    /**
+     * Sets the current menu selection to specified index.
+     *
+     * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for the task.
+     * @param index  Sets the selection index to this.
+     */
+    final public void setIndex(CommandSender sender, int index) {
+        selectedIndex = index;
+        contents.get(selectedIndex).onSelect(sender);
+        onSelect();
+        onChange();
+    }
+
+    /**
      * Set's the text to go before the menu options.
      *
      * @param firstLine       First line of header.
@@ -48,6 +205,7 @@ public abstract class ActionMenu {
                 header.add(line);
             }
         }
+        onChange();
     }
 
     /**
@@ -74,6 +232,7 @@ public abstract class ActionMenu {
                 footer.add(line);
             }
         }
+        onChange();
     }
 
     /**
@@ -90,67 +249,18 @@ public abstract class ActionMenu {
      *
      * @param contents List of menu items to set for this menu.
      */
-    final public void setContents(List<ActionMenuItem> contents) {
+    /*final public void setContents(List<ActionMenuItem> contents) {
         this.contents = contents;
-    }
+    }*/
 
     /**
      * Retrieve the underlying ArrayList of menu items.
      *
      * @return Menu item list.
      */
-    final public List<ActionMenuItem> getContents() {
+    /*final public List<ActionMenuItem> getContents() {
         return contents;
-    }
-
-    /**
-     * Returns the menu item that is selected.
-     *
-     * @return Selected menu item.
-     */
-    final public ActionMenuItem getSelectedMenuItem() {
-        return contents.get(selectedIndex);
-    }
-
-    /**
-     * Adds a menu item to the end of the menu.
-     *
-     * @param item Menu item to add to the menu.
-     * @return Index of the new menu item.
-     */
-    public Integer addMenuItem(ActionMenuItem item) {
-        contents.add(item);
-        return contents.size() - 1;
-    }
-
-    /**
-     * Removes the menu item at the specified position in this menu. Shifts any subsequent menu items to the left (subtracts one from their indices). Returns the menu item that was removed from the menu.
-     * @param index Index of menu item to remove
-     * @return Menu item removed.
-     * @throws IndexOutOfBoundsException
-     */
-    public ActionMenuItem removeMenuItem(int index) throws IndexOutOfBoundsException {
-        return contents.remove(index);
-    }
-
-    /**
-     * Removes the first occurrence of the specified element from this list, if it is present (optional operation). If this list does not contain the element, it is unchanged. More formally, removes the element with the lowest index i such that (o==null ? get(i)==null : o.equals(get(i))) (if such an element exists). Returns true if this list contained the specified element (or equivalently, if this list changed as a result of the call).
-     *
-     * @param item element to be removed from this list, if present
-     * @return true if this list contained the specified element
-     */
-    public boolean removeMenuItem(ActionMenuItem item) {
-        return contents.remove(item);
-    }
-
-    /**
-     * Get the index of the current menu selection.
-     *
-     * @return The selected menu item's index.
-     */
-    final public Integer getMenuIndex() {
-        return selectedIndex;
-    }
+    }*/
 
     /**
      * Cycles the selection through the menu options.
@@ -189,6 +299,7 @@ public abstract class ActionMenu {
         triggerAllOnCycleEvent(sender);
         contents.get(selectedIndex).onSelect(sender);
         onCycle();
+        onChange();
     }
 
     /**
@@ -206,6 +317,13 @@ public abstract class ActionMenu {
     }
 
     /**
+     * Empty method.  Called when menu contents are altered in any way or when the selection index is altered.
+     */
+    protected void onChange() {
+        
+    }
+
+    /**
      * Calls onCycle() on each menu item in this menu
      *
      * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for the task.
@@ -214,27 +332,6 @@ public abstract class ActionMenu {
         for (ActionMenuItem item : contents) {
             item.onCycle(sender);
         }
-    }
-
-    /**
-     * Sets the current menu selection to specified index.
-     *
-     * @param index Sets the selection index to this.
-     */
-    final public void setMenuIndex(int index) {
-        selectedIndex = index;
-    }
-
-    /**
-     * Sets the current menu selection to specified index.
-     *
-     * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for the task.
-     * @param index  Sets the selection index to this.
-     */
-    final public void setMenuIndex(CommandSender sender, int index) {
-        selectedIndex = index;
-        contents.get(selectedIndex).onSelect(sender);
-        onSelect();
     }
 
     /**
@@ -267,6 +364,12 @@ public abstract class ActionMenu {
     final public void updateMenuItems() {
         for (ActionMenuItem item : contents) {
             item.update();
+        }
+    }
+
+    public void update(Observable o, Object arg) {
+        if (o instanceof ActionMenuItem) {
+            onChange();
         }
     }
 

@@ -17,28 +17,32 @@ public class MapActionMenuRenderer extends MapRenderer {
     }
 
     public void render(MapView mapView, MapCanvas mapCanvas, Player player) {
-        int y = menu.getY();
-        int scrollPos = 0;//getScrollPos();
-        for (int i = scrollPos; i < menu.getHeader().size(); i++) {
-            y = menu.writeLines(mapCanvas, menu.getX(), y, menu.getFont(), menu.getHeader().get(i));
-        }
-        scrollPos -= menu.getHeader().size();
-        if (scrollPos < 0) scrollPos = 0;
-        for (int i = scrollPos; i < menu.getContents().size(); i++) {
-            if (!(menu.getContents().get(i) instanceof MapActionMenuItem)) continue;
-            MapActionMenuItem item = (MapActionMenuItem)menu.getContents().get(i);
-            String text = "";
-            if (menu.getMenuIndex() == i) {
-                text += "-> ";
+        if (menu.hasChanged()) {
+            System.out.println("rendering");
+            int y = menu.getY();
+            int scrollPos = 0;//getScrollPos();
+            for (int i = scrollPos; i < menu.getHeader().size(); i++) {
+                y = MapUtil.writeLines(menu, mapCanvas, menu.getX(), y, menu.getFont(), menu.getHeader().get(i));
             }
-            text += item.getText();
-            y = menu.writeLines(mapCanvas, menu.getX(), y+2, item.getFont(), text);
-        }
+            scrollPos -= menu.getHeader().size();
+            if (scrollPos < 0) scrollPos = 0;
+            for (int i = scrollPos; i < menu.size(); i++) {
+                if (!(menu.get(i) instanceof MapActionMenuItem)) continue;
+                MapActionMenuItem item = (MapActionMenuItem)menu.get(i);
+                String text = "";
+                if (menu.getIndex() == i) {
+                    text += "-> ";
+                }
+                text += item.getText();
+                y = MapUtil.writeLines(menu, mapCanvas, menu.getX(), y+2, item.getFont(), text);
+            }
 
-        scrollPos -= menu.getContents().size();
-        if (scrollPos < 0) scrollPos = 0;
-        for (int i = scrollPos; i < menu.getFooter().size(); i++) {
-            y = menu.writeLines(mapCanvas, menu.getX(), y+2, menu.getFont(), menu.getFooter().get(i));
+            scrollPos -= menu.size();
+            if (scrollPos < 0) scrollPos = 0;
+            for (int i = scrollPos; i < menu.getFooter().size(); i++) {
+                y = MapUtil.writeLines(menu, mapCanvas, menu.getX(), y+2, menu.getFont(), menu.getFooter().get(i));
+            }
+            menu.setChanged(false);
         }
     }
 }

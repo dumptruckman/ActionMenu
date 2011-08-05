@@ -2,10 +2,12 @@ package com.dumptruckman.actionmenu;
 
 import org.bukkit.command.CommandSender;
 
+import java.util.Observable;
+
 /**
  * @author dumptruckman
  */
-public abstract class ActionMenuItem implements Runnable {
+public abstract class ActionMenuItem extends Observable implements Runnable {
 
     private String text;
     private CommandSender sender;
@@ -79,6 +81,8 @@ public abstract class ActionMenuItem implements Runnable {
      */
     public void setText(String text) {
         this.text = text;
+        setChanged();
+        notifyObservers();
     }
 
     /**
@@ -103,6 +107,8 @@ public abstract class ActionMenuItem implements Runnable {
      */
     protected void setInteracting(CommandSender sender) {
         this.sender = sender;
+        setChanged();
+        notifyObservers();
     }
 
     /**

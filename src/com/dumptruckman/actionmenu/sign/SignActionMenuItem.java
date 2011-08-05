@@ -43,6 +43,8 @@ public abstract class SignActionMenuItem extends PlayerActionMenuItem {
      */
     public void setLines(List<String> lines) {
         this.lines = lines;
+        setChanged();
+        notifyObservers();
     }
 
     /**
@@ -56,5 +58,7 @@ public abstract class SignActionMenuItem extends PlayerActionMenuItem {
             throw new IndexOutOfBoundsException("Only 4 lines allowed");
         }
         lines.set(index, line);
+        setChanged();
+        notifyObservers();
     }
 }

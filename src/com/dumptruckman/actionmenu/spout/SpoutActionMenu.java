@@ -28,7 +28,7 @@ public class SpoutActionMenu extends ActionMenu {
         }
     }
 
-    public Integer addMenuItem(ActionMenuItem item) {
+    public Integer add(ActionMenuItem item) {
 
     }*/
     public void showMenu(CommandSender sender) {

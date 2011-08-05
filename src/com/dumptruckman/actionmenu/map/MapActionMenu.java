@@ -5,7 +5,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.map.*;
 import org.bukkit.plugin.java.JavaPlugin;
-import sun.plugin2.main.server.Plugin;
 
 /**
  * @author dumptruckman
@@ -19,10 +18,9 @@ public class MapActionMenu extends ActionMenu {
     private int width;
     private int height;
     private int lineSpacing;
-    private int betweenCharSpace;
     private int scrollPos;
     private MapRenderer mapRenderer;
-    private MapCanvas mapCanvas;
+    private boolean changed;
 
     public MapActionMenu(JavaPlugin plugin) {
         super(plugin);
@@ -31,9 +29,9 @@ public class MapActionMenu extends ActionMenu {
         width = 120;
         height = 116;
         lineSpacing = 1;
-        betweenCharSpace = 3;
         scrollPos = 0;
         mapRenderer = new MapActionMenuRenderer(this);
+        changed = true;
     }
 
     public MapActionMenu setFont(MapFont font) {
@@ -134,58 +132,17 @@ public class MapActionMenu extends ActionMenu {
             scrollPos = 0;
         }
     }*/
-    
-    protected int writeLines(MapCanvas canvas, int x, int y, MapFont font, String text) {
-        int xPos = x;
-        int yPos = y;
-        int xLimit = getWidth() - x;
-        int yLimit = getHeight() - y;
-        int spaceWidth = font.getWidth(" ") + betweenCharSpace;
-        String[] words = text.split("\\s");
-        String lineBuffer = "";
-        int lineWidth = 0;
-        for (int i = 0; i < words.length; i++) {
-            int wordWidth = font.getWidth(words[i]);
-            if (wordWidth <= xLimit) {
-                if (xPos + lineWidth + wordWidth <= xLimit) {
-                    lineBuffer += words[i] + " ";
-                    lineWidth = font.getWidth(lineBuffer);
-                } else {
-                    canvas.drawText(xPos, yPos, font, lineBuffer);
-                    lineBuffer = "";
-                    lineWidth = 0;
-                    yPos += font.getHeight() + getLineSpacing();
-                    i--;
-                    continue;
-                }
-            } else {
-                char[] chars = words[i].toCharArray();
-                for (int j = 0; j < chars.length; j++) {
-                    String sChar = Character.toString(chars[j]);
-                    int charWidth = font.getWidth(sChar);
-                    if (xPos + lineWidth + charWidth < xLimit) {
-                        lineBuffer += sChar;
-                        lineWidth = font.getWidth(lineBuffer);
-                    } else {
-                        canvas.drawText(xPos, yPos, font, lineBuffer);
-                        lineBuffer = "";
-                        lineWidth = 0;
-                        yPos += font.getHeight() + getLineSpacing();
-                        j--;
-                        continue;
-                    }
-                }
-                if (lineWidth != 0) {
-                    lineBuffer += " ";
-                    lineWidth = font.getWidth(lineBuffer);
-                }
-            }
-        }
-        if (lineWidth != 0) {
-            canvas.drawText(xPos, yPos, font, lineBuffer);
-            yPos += font.getHeight() + getLineSpacing();
-        }
-        return yPos;
+
+    protected void onChange() {
+        setChanged(true);
+    }
+
+    public void setChanged(boolean changes) {
+        this.changed = changes;
+    }
+
+    public boolean hasChanged() {
+        return changed;
     }
 
     public void showMenu(CommandSender sender) {
@@ -194,11 +151,12 @@ public class MapActionMenu extends ActionMenu {
 
     public void showMenu(Player player, MapView mapView) {
         if (!mapView.isVirtual()) {
-            mapView.getRenderers().remove(0);
+            mapView.removeRenderer(mapView.getRenderers().get(0));
         }
-        if (!mapView.getRenderers().contains(getMapRenderer())) {
-            mapView.addRenderer(getMapRenderer());
+        if (mapView.getRenderers().contains(getMapRenderer())) {
+            mapView.removeRenderer(getMapRenderer());
         }
+        mapView.addRenderer(getMapRenderer());
         player.sendMap(mapView);
     }
 }
