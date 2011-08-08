@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fb04386-6d33-4b17-a121-b03d6ce4771d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/maps.xml" afterPath="$PROJECT_DIR$/.idea/libraries/maps.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlayerListener.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlayerListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java" afterPath="$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java" />
     </list>
     <ignored path="ActionMenu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,9 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="12" column="20" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -122,7 +120,7 @@
       <file leaf-file-name="ActionMenuPlayerListener.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlayerListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="62" selection-start="1288" selection-end="1288" vertical-scroll-proportion="0.6771978">
+            <state line="35" column="9" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.6078665">
               <folding />
             </state>
           </provider>
@@ -191,7 +189,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -346,8 +346,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -482,26 +480,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="150" y="30" width="1447" height="935" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24837075" sideWeight="0.6705277" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19693251" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="270" y="150" width="1247" height="735" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -576,69 +574,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="26" selection-start="2661" selection-end="2661" vertical-scroll-proportion="0.64972526">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="110" column="26" selection-start="2661" selection-end="2661" vertical-scroll-proportion="0.64972526" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/sign/SignActionMenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="26" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.83653843">
-          <folding />
-        </state>
+        <state line="61" column="26" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.83653843" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/PlayerActionMenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.6771978">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/DefaultActionMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="39" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="44" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="29" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.6771978" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/ActionMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="371" column="23" selection-start="11800" selection-end="11800" vertical-scroll-proportion="1.855944">
-          <folding />
-        </state>
+        <state line="371" column="23" selection-start="11800" selection-end="11800" vertical-scroll-proportion="1.855944" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="35" selection-start="3353" selection-end="3353" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="152" column="35" selection-start="3353" selection-end="3353" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/DefaultActionMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="39" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="20" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="44" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="495" selection-end="1961" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="0" selection-start="495" selection-end="1961" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/map/MapActionMenuItem.java">
@@ -648,9 +624,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dumptruckman/actionmenu/plugin/ActionMenuPlayerListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="62" selection-start="1288" selection-end="1288" vertical-scroll-proportion="0.6771978">
-          <folding />
-        </state>
+        <state line="35" column="9" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.6078665" />
       </provider>
     </entry>
   </component>

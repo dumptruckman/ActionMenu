@@ -5,6 +5,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerListener;
+import org.bukkit.util.config.Configuration;
 //import org.bukkitcontrib.gui.*;
 //import org.bukkitcontrib.player.ContribPlayer;
 
