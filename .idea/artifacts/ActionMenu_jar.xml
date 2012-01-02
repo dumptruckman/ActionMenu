@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="ActionMenu:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/ActionMenu_jar</output-path>
-    <root id="archive" name="ActionMenu.jar">
-      <element id="module-output" name="ActionMenu" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
-    </root>
-  </artifact>
-</component>

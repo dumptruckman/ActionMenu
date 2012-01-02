@@ -28,19 +28,16 @@ public class ActionMenuPlugin extends JavaPlugin {
         menu = new MapActionMenu(this);
         menu.setHeader("Spells");
         menu.add(new MapActionMenuItem("Fireball") {
-            @Override
             public void run() {
                 final Vector direction = getPlayer().getEyeLocation().getDirection().multiply(2);
                 getPlayer().getWorld().spawn(getPlayer().getEyeLocation().add(direction.getX(), direction.getY(), direction.getZ()), Fireball.class);
             }
         });
         menu.add(new MapActionMenuItem("This is a plugin of the emergency broadcast system.") {
-            @Override
             public void run() {
             }
         });
         menu.add(new MapActionMenuItem("12345678901234567890123456789012345678901234567890") {
-            @Override
             public void run() {
             }
         });
