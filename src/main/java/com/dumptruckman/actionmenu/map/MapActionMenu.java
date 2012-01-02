@@ -1,6 +1,7 @@
 package com.dumptruckman.actionmenu.map;
 
 import com.dumptruckman.actionmenu.ActionMenu;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.map.*;
@@ -22,8 +23,7 @@ public class MapActionMenu extends ActionMenu {
     private MapRenderer mapRenderer;
     private boolean changed;
 
-    public MapActionMenu(JavaPlugin plugin) {
-        super(plugin);
+    public MapActionMenu() {
         x = 2;
         y = 10;
         width = 120;
@@ -146,7 +146,7 @@ public class MapActionMenu extends ActionMenu {
     }
 
     public void showMenu(CommandSender sender) {
-        showMenu((Player) sender, getPlugin().getServer().getMap(((Player) sender).getItemInHand().getDurability()));
+        showMenu((Player) sender, Bukkit.getServer().getMap(((Player) sender).getItemInHand().getDurability()));
     }
 
     public void showMenu(Player player, MapView mapView) {

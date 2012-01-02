@@ -14,23 +14,6 @@ public abstract class ActionMenu implements Iterable, Observer {
     private int selectedIndex = 0;
     private List<String> header = new ArrayList<String>();
     private List<String> footer = new ArrayList<String>();
-    private JavaPlugin plugin;
-
-    public ActionMenu(JavaPlugin plugin) {
-        this.plugin = plugin;
-    }
-
-    public ActionMenu() {
-        this(null);
-    }
-
-    /**
-     * Retrieves the plugin stored in this menu, if any.
-     * @return The plugin running the menu or null.
-     */
-    final public JavaPlugin getPlugin() {
-        return plugin;
-    }
 
     /**
      * Adds a menu item to the end of the menu.
