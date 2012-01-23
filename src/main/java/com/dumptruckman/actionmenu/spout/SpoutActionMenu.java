@@ -32,6 +32,6 @@ public class SpoutActionMenu extends ActionMenu {
 
     }*/
     public void showMenu(CommandSender sender) {
-        
+
     }
 }

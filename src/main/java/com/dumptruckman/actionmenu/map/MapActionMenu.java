@@ -4,11 +4,13 @@ import com.dumptruckman.actionmenu.ActionMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.map.*;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.map.MapFont;
+import org.bukkit.map.MapRenderer;
+import org.bukkit.map.MapView;
+import org.bukkit.map.MinecraftFont;
 
 /**
- * @author dumptruckman
+ * An implementation of ActionMenu for Minecraft maps.
  */
 public class MapActionMenu extends ActionMenu {
 
@@ -24,21 +26,30 @@ public class MapActionMenu extends ActionMenu {
     private boolean changed;
 
     public MapActionMenu() {
-        x = 2;
-        y = 10;
-        width = 120;
-        height = 116;
-        lineSpacing = 1;
-        scrollPos = 0;
+        x = MapDefaults.X_POS;
+        y = MapDefaults.Y_POS;
+        width = MapDefaults.WIDTH;
+        height = MapDefaults.HEIGHT;
+        lineSpacing = MapDefaults.LINE_SPACING;
+        scrollPos = MapDefaults.SCROLL_POS;
         mapRenderer = new MapActionMenuRenderer(this);
         changed = true;
     }
 
+    /**
+     * Sets the font for this MapActionMenu.
+     *
+     * @param font the Font to be used.
+     * @return This map for chaining.
+     */
     public MapActionMenu setFont(MapFont font) {
         this.mapFont = font;
         return this;
     }
 
+    /**
+     * @return The Font being used by this map.
+     */
     public MapFont getFont() {
         return mapFont;
     }
@@ -91,7 +102,7 @@ public class MapActionMenu extends ActionMenu {
         this.lineSpacing = space;
         return this;
     }
-    
+
     public int getLineSpacing() {
         return lineSpacing;
     }

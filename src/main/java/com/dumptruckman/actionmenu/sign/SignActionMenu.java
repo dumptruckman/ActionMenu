@@ -6,10 +6,6 @@ import com.dumptruckman.actionmenu.IncompatibleMenuItemException;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
-import java.util.logging.Logger;
 
 /**
  * @author dumprtuckman
@@ -20,6 +16,7 @@ public abstract class SignActionMenu extends ActionMenu {
 
     /**
      * Create a sign based ActionMenu.
+     *
      * @param block Block that this menu is assigned to.  It must be a Sign.
      */
     public SignActionMenu(Block block) {
@@ -28,6 +25,7 @@ public abstract class SignActionMenu extends ActionMenu {
 
     /**
      * Returns the block associated with this menu.
+     *
      * @return Block associated with this menu.
      */
     public Block getBlock() {
@@ -36,6 +34,7 @@ public abstract class SignActionMenu extends ActionMenu {
 
     /**
      * Sets the block this menu is assigned to.
+     *
      * @param block Block menu will be assigned to.
      */
     public void setBlock(Block block) {
@@ -44,13 +43,13 @@ public abstract class SignActionMenu extends ActionMenu {
 
     /**
      * Gets the sign associated with this menu.
-     * 
+     *
      * @return Sign associated with this menu or null if block is no longer a Sign.
      */
     public Sign getSign() {
         BlockState blockState = this.getBlock().getState();
         if (blockState instanceof Sign)
-            return (Sign)blockState;
+            return (Sign) blockState;
         return null;
     }
 

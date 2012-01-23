@@ -8,14 +8,14 @@ import org.bukkit.map.MapFont;
  */
 public class MapUtil {
 
-    private static int CHAR_SPACE = 3;
+    private static int charSpace = 3;
 
     protected static int writeLines(MapActionMenu menu, MapCanvas canvas, int x, int y, MapFont font, String text) {
         int xPos = x;
         int yPos = y;
         int xLimit = menu.getWidth() - x;
         int yLimit = menu.getHeight() - y;
-        int spaceWidth = font.getWidth(" ") + CHAR_SPACE;
+        int spaceWidth = font.getWidth(" ") + charSpace;
         String[] words = text.split("\\s");
         String lineBuffer = "";
         int lineWidth = 0;
@@ -62,4 +62,6 @@ public class MapUtil {
         }
         return yPos;
     }
+
+    private MapUtil() { }
 }

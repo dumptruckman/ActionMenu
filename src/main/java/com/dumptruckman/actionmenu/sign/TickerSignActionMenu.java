@@ -14,7 +14,9 @@ public class TickerSignActionMenu extends SignActionMenu {
     }
 
     /**
-     * Cause this menu to show on the sign.  If a sender is specified it will send a false block update to them first to ensure the text is displayed.
+     * Cause this menu to show on the sign.  If a sender is specified it will send a false block update to them
+     * first to ensure the text is displayed.
+     *
      * @param sender CommandSender to show menu to.  May be set to null.
      */
     public void showMenu(CommandSender sender) {
@@ -23,6 +25,7 @@ public class TickerSignActionMenu extends SignActionMenu {
 
     /**
      * Shows a single menu item on the sign.  Since signs are small, they are unable to hold much text
+     *
      * @param sender
      */
     private void showSelectedMenuItem(CommandSender sender) {
@@ -31,7 +34,7 @@ public class TickerSignActionMenu extends SignActionMenu {
             Logger.getLogger("Minecraft.ActionMenu").severe("Tried to show a SignActionMenu on a non-sign block.");
             return;
         }
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < SignProps.MAX_LINES; i++) {
             sign.setLine(i, ((SignActionMenuItem) this.getSelectedItem()).getLine(i));
         }
         if (sender instanceof Player && sender != null) {

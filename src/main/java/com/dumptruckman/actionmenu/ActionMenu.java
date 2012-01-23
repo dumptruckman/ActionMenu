@@ -1,9 +1,12 @@
 package com.dumptruckman.actionmenu;
 
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * @author dumptruckman
@@ -37,7 +40,9 @@ public abstract class ActionMenu implements Iterable, Observer {
     }
 
     /**
-     * Returns true if this menu contains the specified item. More formally, returns true if and only if this menu contains at least one item i such that (item==null ? i==null : item.equals(i)).
+     * Returns true if this menu contains the specified item. More formally, returns true if and only if this menu
+     * contains at least one item i such that (item==null ? i==null : item.equals(i)).
+     *
      * @param item Item whose presence in this menu is to be tested.
      * @return true If this menu contains the specified item.
      */
@@ -47,16 +52,17 @@ public abstract class ActionMenu implements Iterable, Observer {
 
     /**
      * Returns the item at the specified position in this menu.
+     *
      * @param index Index of the item to return.
      * @return The item at the specified index of this menu.
-     * @throws IndexOutOfBoundsException
      */
-    public ActionMenuItem get(int index) throws IndexOutOfBoundsException {
+    public ActionMenuItem get(int index) {
         return contents.get(index);
     }
 
     /**
      * Returns true if this menu contains no items.
+     *
      * @return true if this menu contains no items.
      */
     public boolean isEmpty() {
@@ -65,6 +71,7 @@ public abstract class ActionMenu implements Iterable, Observer {
 
     /**
      * Returns an iterator over the items in this menu in proper sequence.
+     *
      * @return an iterator over the items in this menu in proper sequence.
      */
     public Iterator<ActionMenuItem> iterator() {
@@ -72,28 +79,38 @@ public abstract class ActionMenu implements Iterable, Observer {
     }
 
     /**
-     * Returns the index of the first occurrence of the specified itme in this menu, or -1 if this menu does not contain the item. More formally, returns the lowest index i such that (item==null ? get(i)==null : item.equals(get(i))), or -1 if there is no such index.
+     * Returns the index of the first occurrence of the specified itme in this menu, or -1 if this menu does not
+     * contain the item. More formally, returns the lowest index i such that
+     * (item==null ? get(i)==null : item.equals(get(i))), or -1 if there is no such index.
+     *
      * @param item Item to search for.
-     * @return The index of the first occurrence of the specified item in this menu, or -1 if this menu does not contain the item.
+     * @return The index of the first occurrence of the specified item in this menu, or -1 if this menu does not
+     * contain the item.
      */
     public Integer indexOf(ActionMenuItem item) {
         return contents.indexOf(item);
     }
 
     /**
-     * Returns the index of the last occurrence of the specified item in this menu, or -1 if this menu does not contain the item. More formally, returns the highest index i such that (item==null ? get(i)==null : item.equals(get(i))), or -1 if there is no such index.
+     * Returns the index of the last occurrence of the specified item in this menu, or -1 if this menu does not
+     * contain the item. More formally, returns the highest index i such that
+     * (item==null ? get(i)==null : item.equals(get(i))), or -1 if there is no such index.
+     *
      * @param item Item to search for.
-     * @return The index of the last occurrence of the specified item in this menu, or -1 if this menu does not contain the item.
+     * @return The index of the last occurrence of the specified item in this menu, or -1 if this menu does not
+     * contain the item.
      */
     public Integer lastIndexOf(ActionMenuItem item) {
         return contents.lastIndexOf(item);
     }
 
     /**
-     * Removes the menu item at the specified position in this menu. Shifts any subsequent menu items to the left (subtracts one from their indices). Returns the menu item that was removed from the menu.
+     * Removes the menu item at the specified position in this menu. Shifts any subsequent menu items to the left
+     * (subtracts one from their indices). Returns the menu item that was removed from the menu.
+     *
      * @param index Index of menu item to remove
      * @return Menu item removed.
-     * @throws IndexOutOfBoundsException
+     * @throws IndexOutOfBoundsException test
      */
     public ActionMenuItem remove(int index) throws IndexOutOfBoundsException {
         ActionMenuItem item = contents.remove(index);
@@ -102,7 +119,10 @@ public abstract class ActionMenu implements Iterable, Observer {
     }
 
     /**
-     * Removes the first occurrence of the specified item from this menu, if it is present. If this menu does not contain the item, it is unchanged. More formally, removes the item with the lowest index i such that (item==null ? get(i)==null : item.equals(get(i))) (if such an item exists). Returns true if this menu contained the specified item (or equivalently, if this menu changed as a result of the call).
+     * Removes the first occurrence of the specified item from this menu, if it is present. If this menu does not
+     * contain the item, it is unchanged. More formally, removes the item with the lowest index i such that
+     * (item==null ? get(i)==null : item.equals(get(i))) (if such an item exists). Returns true if this menu
+     * contained the specified item (or equivalently, if this menu changed as a result of the call).
      *
      * @param item element to be removed from this list, if present
      * @return true if this list contained the specified element
@@ -115,8 +135,9 @@ public abstract class ActionMenu implements Iterable, Observer {
 
     /**
      * Replaces the item at the specified position in this menu with the specified item.
+     *
      * @param index Index of the item to replace.
-     * @param item Item to be stored at the specified position.
+     * @param item  Item to be stored at the specified position.
      * @return The item previously at the specified position
      */
     public ActionMenuItem set(int index, ActionMenuItem item) {
@@ -126,8 +147,10 @@ public abstract class ActionMenu implements Iterable, Observer {
     }
 
     /**
-     * Returns the number of items in this menu. If this menu contains more than Integer.MAX_VALUE items, returns Integer.MAX_VALUE.
-     * @return
+     * Returns the number of items in this menu. If this menu contains more than Integer.MAX_VALUE items, returns
+     * Integer.MAX_VALUE.
+     *
+     * @return the number of menu items in this menu.
      */
     public Integer size() {
         return contents.size();
@@ -138,7 +161,7 @@ public abstract class ActionMenu implements Iterable, Observer {
      *
      * @return Selected menu item.
      */
-    final public ActionMenuItem getSelectedItem() {
+    public final ActionMenuItem getSelectedItem() {
         return contents.get(selectedIndex);
     }
 
@@ -147,7 +170,7 @@ public abstract class ActionMenu implements Iterable, Observer {
      *
      * @return The selected menu item's index.
      */
-    final public Integer getIndex() {
+    public final Integer getIndex() {
         return selectedIndex;
     }
 
@@ -156,17 +179,18 @@ public abstract class ActionMenu implements Iterable, Observer {
      *
      * @param index Sets the selection index to this.
      */
-    final public void setIndex(int index) {
+    public final void setIndex(int index) {
         setIndex(null, index);
     }
 
     /**
      * Sets the current menu selection to specified index.
      *
-     * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for the task.
+     * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for
+     *               the task.
      * @param index  Sets the selection index to this.
      */
-    final public void setIndex(CommandSender sender, int index) {
+    public final void setIndex(CommandSender sender, int index) {
         selectedIndex = index;
         contents.get(selectedIndex).onSelect(sender);
         onSelect();
@@ -179,7 +203,7 @@ public abstract class ActionMenu implements Iterable, Observer {
      * @param firstLine       First line of header.
      * @param additionalLines Optional additional lines of header.
      */
-    final public void setHeader(String firstLine, String... additionalLines) {
+    public final void setHeader(String firstLine, String... additionalLines) {
         header.clear();
         header.add(firstLine);
 
@@ -196,7 +220,7 @@ public abstract class ActionMenu implements Iterable, Observer {
      *
      * @return List of header lines.
      */
-    final public List<String> getHeader() {
+    public List<String> getHeader() {
         return header;
     }
 
@@ -206,7 +230,7 @@ public abstract class ActionMenu implements Iterable, Observer {
      * @param firstLine       First line of footer.
      * @param additionalLines Optional additional lines of footer.
      */
-    final public void setFooter(String firstLine, String... additionalLines) {
+    public final void setFooter(String firstLine, String... additionalLines) {
         footer.clear();
         footer.add(firstLine);
 
@@ -223,7 +247,7 @@ public abstract class ActionMenu implements Iterable, Observer {
      *
      * @return List of footer lines.
      */
-    final public List<String> getFooter() {
+    public List<String> getFooter() {
         return footer;
     }
 
@@ -248,26 +272,28 @@ public abstract class ActionMenu implements Iterable, Observer {
     /**
      * Cycles the selection through the menu options.
      */
-    final public void cycleMenu() {
+    public void cycleMenu() {
         cycleMenu(null, false);
     }
 
     /**
      * Cycles the selection through the menu option.
      *
-     * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for the task.
+     * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for
+     *               the task.
      */
-    final public void cycleMenu(CommandSender sender) {
+    public void cycleMenu(CommandSender sender) {
         cycleMenu(sender, false);
     }
 
     /**
      * Cycles the selection through the menu options.
      *
-     * @param sender  Person who activates the menu cycle.  This could be null if the sender is not important for the task.
+     * @param sender  Person who activates the menu cycle.  This could be null if the sender is not important for
+     *                the task.
      * @param reverse If set to true, cycles backwards.
      */
-    final public void cycleMenu(CommandSender sender, boolean reverse) {
+    public final void cycleMenu(CommandSender sender, boolean reverse) {
         if (reverse) {
             selectedIndex--;
         } else {
@@ -303,15 +329,16 @@ public abstract class ActionMenu implements Iterable, Observer {
      * Empty method.  Called when menu contents are altered in any way or when the selection index is altered.
      */
     protected void onChange() {
-        
+
     }
 
     /**
-     * Calls onCycle() on each menu item in this menu
+     * Calls onCycle() on each menu item in this menu.
      *
-     * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for the task.
+     * @param sender Person who activates the menu cycle.  This could be null if the sender is not important for
+     *               the task.
      */
-    final protected void triggerAllOnCycleEvent(CommandSender sender) {
+    protected final void triggerAllOnCycleEvent(CommandSender sender) {
         for (ActionMenuItem item : contents) {
             item.onCycle(sender);
         }
@@ -320,11 +347,12 @@ public abstract class ActionMenu implements Iterable, Observer {
     /**
      * Perform doMenuItem() of the menu at specific index for the sender.
      *
-     * @param sender Whoever is activating the menu item. This could be null if the sender is not important for the task.
+     * @param sender Whoever is activating the menu item. This could be null if the sender is not important for
+     *               the task.
      * @param index  Index of the menu item to perform.
      * @return The item performed.
      */
-    final public ActionMenuItem doMenuItem(CommandSender sender, int index) {
+    public ActionMenuItem doMenuItem(CommandSender sender, int index) {
         ActionMenuItem selectedItem = contents.get(index);
         selectedItem.setInteracting(sender);
         selectedItem.run();
@@ -334,22 +362,24 @@ public abstract class ActionMenu implements Iterable, Observer {
     /**
      * Performs doMenuItem() on the currently selected menu item for the sender.
      *
-     * @param sender Whoever is activating the menu item. This could be null if the sender is not important for the task.
+     * @param sender Whoever is activating the menu item. This could be null if the sender is not important for
+     *               the task.
      * @return the item performed
      */
-    final public ActionMenuItem doSelectedMenuItem(CommandSender sender) {
+    public ActionMenuItem doSelectedMenuItem(CommandSender sender) {
         return doMenuItem(sender, selectedIndex);
     }
 
     /**
      * Runs the update method on all menu items.
      */
-    final public void updateMenuItems() {
+    public void updateMenuItems() {
         for (ActionMenuItem item : contents) {
             item.update();
         }
     }
 
+    @Override
     public void update(Observable o, Object arg) {
         if (o instanceof ActionMenuItem) {
             onChange();

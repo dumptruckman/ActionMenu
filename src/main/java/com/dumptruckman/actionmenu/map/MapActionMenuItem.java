@@ -9,14 +9,14 @@ import org.bukkit.map.MinecraftFont;
  */
 public abstract class MapActionMenuItem extends PlayerActionMenuItem {
 
-    MapFont font;
-    int indent;
-    int lineSpacing;
+    protected MapFont font;
+    protected int indent;
+    protected int lineSpacing;
 
     public MapActionMenuItem(String text) {
         super(text);
         font = MinecraftFont.Font;
-        indent = 5;
+        indent = MapDefaults.LINE_INDENT;
         lineSpacing = 3;
     }
 
