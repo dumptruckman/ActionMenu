@@ -1,4 +1,4 @@
-package com.dumptruckman.actionmenu2.util;
+package com.dumptruckman.actionmenu2.api.util;
 
 import java.util.Collection;
 import java.util.Iterator;

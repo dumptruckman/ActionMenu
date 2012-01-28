@@ -15,9 +15,9 @@ import org.bukkit.map.MapRenderer;
  */
 public class ActionMenuListener implements Listener {
 
-    private ActionMenuPlugin plugin;
+    private ActionMenuPluginOld plugin;
 
-    public ActionMenuListener(ActionMenuPlugin plugin) {
+    public ActionMenuListener(ActionMenuPluginOld plugin) {
         this.plugin = plugin;
     }
 

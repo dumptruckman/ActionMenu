@@ -1,4 +1,4 @@
-package com.dumptruckman.actionmenu2.event;
+package com.dumptruckman.actionmenu2.api.event;
 
 public interface MenuContentsListener {
 

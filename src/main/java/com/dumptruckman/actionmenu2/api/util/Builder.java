@@ -1,4 +1,4 @@
-package com.dumptruckman.actionmenu2.util;
+package com.dumptruckman.actionmenu2.api.util;
 
 /**
  * A simple interface for building immutable objects.

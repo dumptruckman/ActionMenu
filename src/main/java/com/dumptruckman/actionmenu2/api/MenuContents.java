@@ -1,6 +1,6 @@
-package com.dumptruckman.actionmenu2;
+package com.dumptruckman.actionmenu2.api;
 
-import com.dumptruckman.actionmenu2.event.MenuContentsListener;
+import com.dumptruckman.actionmenu2.api.event.MenuContentsListener;
 
 import java.util.Collection;
 import java.util.List;
@@ -24,7 +24,7 @@ public interface MenuContents<E extends MenuItem> extends List<E> {
      * restrictions on the type of elements that may be added.  List
      * classes should clearly specify in their documentation any restrictions
      * on what elements may be added.
-     * <p>If successful, makes a call to {@link MenuContentsListener#onContentsAdd(com.dumptruckman.actionmenu2.event.MenuContentsEvent)}
+     * <p>If successful, makes a call to {@link MenuContentsListener#onContentsAdd(com.dumptruckman.actionmenu2.api.event.MenuContentsEvent)}
      * for all registered listeners
      *
      * @param e element to be appended to this list
@@ -193,7 +193,7 @@ public interface MenuContents<E extends MenuItem> extends List<E> {
      * (optional operation).  Shifts the element currently at that position
      * (if any) and any subsequent elements to the right (adds one to their
      * indices).
-     * <p>A makes a call to {@link MenuContentsListener#onContentsAdd(com.dumptruckman.actionmenu2.event.MenuContentsEvent)}
+     * <p>A makes a call to {@link MenuContentsListener#onContentsAdd(com.dumptruckman.actionmenu2.api.event.MenuContentsEvent)}
      * for all registered listeners
      *
      * @param index   index at which the specified element is to be inserted

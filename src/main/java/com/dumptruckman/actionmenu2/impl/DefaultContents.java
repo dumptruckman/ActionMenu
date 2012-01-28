@@ -1,22 +1,28 @@
-package com.dumptruckman.actionmenu2;
+package com.dumptruckman.actionmenu2.impl;
 
-import com.dumptruckman.actionmenu2.event.MenuContentsEvent;
-import com.dumptruckman.actionmenu2.event.MenuContentsListener;
-import com.dumptruckman.actionmenu2.util.ForwardingList;
+import com.dumptruckman.actionmenu2.api.MenuContents;
+import com.dumptruckman.actionmenu2.api.MenuItem;
+import com.dumptruckman.actionmenu2.api.event.MenuContentsEvent;
+import com.dumptruckman.actionmenu2.api.event.MenuContentsListener;
+import com.dumptruckman.actionmenu2.api.util.ForwardingList;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class DefaultMenuContents<E extends MenuItem> extends ForwardingList<E> implements MenuContents<E> {
+public class DefaultContents<E extends MenuItem> extends ForwardingList<E> implements MenuContents<E> {
     
     private final List<MenuContentsListener> listeners;
     private int selectedIndex;
     
-    public DefaultMenuContents(List<E> contents) {
+    public DefaultContents(List<E> contents) {
         super(contents);
         this.listeners = new ArrayList<MenuContentsListener>();
         this.selectedIndex = this.size() - 1;
+    }
+    
+    public DefaultContents() {
+        this(new ArrayList<E>());
     }
 
     @Override
